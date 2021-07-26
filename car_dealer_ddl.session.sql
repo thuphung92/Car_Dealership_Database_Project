@@ -116,7 +116,8 @@ CREATE TABLE Sales_Invoice(
     amount          NUMERIC(12,2)   NOT NULL,
     FOREIGN KEY (employee_id) REFERENCES Employee(employee_id) ON DELETE CASCADE,
     FOREIGN KEY (inventory_id) REFERENCES Inventory(inventory_id) ON DELETE CASCADE,
-    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE,
+    UNIQUE (invoice_id,inventory_id) --- force 1:1 relationship constraint beetween a sales-invoice and a car for sales
 );
 
 CREATE TABLE Service_Ticket(
@@ -130,5 +131,6 @@ CREATE TABLE Service_Ticket(
     FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE,
     FOREIGN KEY (vin) REFERENCES Car_Serviced(vin) ON DELETE CASCADE,
     FOREIGN KEY (service_id) REFERENCES Service_Category(service_id) ON DELETE CASCADE,
-    FOREIGN KEY (inventory_id) REFERENCES Inventory(inventory_id) ON DELETE CASCADE
+    FOREIGN KEY (inventory_id) REFERENCES Inventory(inventory_id) ON DELETE CASCADE,
+    UNIQUE (ticket_id,vin) --- force 1:1 relationship between a car-serviced and a service-ticket
 );
