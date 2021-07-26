@@ -1,6 +1,6 @@
 # Car Dealership Database Project
 
-## Create an ERD for a car dealership.
+#### Create an ERD for a car dealership.
 
 1. The dealership sells both new and used cars, and it operates a service facility. Base your design on the following business rules:
 2. A salesperson may sell many cars, but each car is sold by only one salesperson.
